@@ -1,0 +1,30 @@
+{% extends "ProyectoWebApp/base.html" %}         
+{% load static %}         
+{% block content %}   
+
+
+<h1 style="color: white; text-align: center;" >CONTACTANOS</h1>
+<form action="/Contacto/" method="POST">{% csrf_token %}
+  <div class="form-group">
+    <label for="nombre" style="color:white">Nombre:</label>
+    <input style="width : 550px ; height:40px" class="form-control" id="nombre" type="text" name="nombre" placeholder="Nombre"  />
+  </div>
+  <div class="form-group">
+    <label for="email" style="color:white">Email:</label>
+    <input style="width : 550px ; height:20 px"  class="form-control"  id="email" type="text" name="email" placeholder="email"/>
+  </div>              
+  <div class="form-group">               
+    <label for="mensaje" style="color:white">mensaje:</label> 
+    <input  class="form-control" style="width : 550px ; height: 200px ;"  type="textarea" name="nombredelacaja">
+  </div>      
+  <button type="submit" class="btn btn-default">Enviar</button>            
+    
+  </form>
+
+
+
+
+
+
+
+{% endblock %}

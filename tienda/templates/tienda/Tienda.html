@@ -1,0 +1,41 @@
+{% extends "ProyectoWebApp/base.html" %}         
+{% load static %}    
+{% block content %}     
+
+{% for tienda in tiendas %}              
+<section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{tienda.foto.url}}" alt="" style="width: 50%;">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">{{tienda.producto}} </span>
+            <span class="section-heading-upper"> {{tienda.descripcion_producto}}</span>
+          </h2>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endfor %}           
+<form action="/tienda/" method="POST">{% csrf_token %}
+  <div class="form-group">
+    <label for="nombre" style="color:white">Nombre:</label>
+    <input style="width : 550px ; height : 20px" class="form-control" id="nombre" type="text" name="nombre" placeholder="Nombre" size="40" aria-required="true"/>
+  </div>
+  <div class="form-group">
+    <label for="email" style="color:white">Email:</label>
+    <input style="width : 550px ; height : 20 px"  class="form-control"  id="email" type="text" name="email" placeholder="email"/>
+  </div>              
+  <div class="form-group">               
+    <label for="informacion del pedido" style="color:white">Informacion del pedido:</label> 
+    <input  class="form-control" style="width : 550px ; height: 200px ;"  type="textarea" name="nombredelacaja">
+  </div>      
+  <button type="submit" class="btn btn-default" >Enviar</button>            
+    
+  </form>
+
+
+
+{% endblock %}
